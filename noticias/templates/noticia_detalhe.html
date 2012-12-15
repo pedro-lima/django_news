@@ -1,0 +1,13 @@
+{% extends "template_master.html" %}
+
+{% block style %}
+<link rel="alternate" type="application/rss+xml" title="Ultimas noticias" href="/rss/" />
+{% endblock %}
+
+{% block conteudo %}
+<h1><a href="{% url noticias.views.buscar_noticia_por_id noticia_id=noticia.id %}" >{{noticia.titulo}}</a></h1>
+<p>{{noticia.texto}}</p>
+<p>{{noticia.data_publicacao|date:"d \d\e F \d\e Y"}}</p>
+{% endblock %}
+</body>
+</html>
