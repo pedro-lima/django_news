@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
 Design by Free CSS Templates
 http://www.freecsstemplates.org
@@ -15,24 +15,25 @@ Released   : 20120723
 		{% include "style.html" %}
 		{% block style %}{% endblock %}
 	</head>
-	<body>
-		<div id="bg1"></div>
-		<div id="bg2"></div>
+	<body style="background-color:black;">
 		<div id="outer">
 			<div id="header">
-      {% include "header.html" %} 
+				{% include "header.html" %}
 			</div>
 			<div id="banner">
-			   {% include "banner.html" %}
+				{% include "banner.html" %}
 			</div>
 			<div id="main">
 				<div id="sidebar">
-				   {% include "sidebar.html" %}
+					{% include "sidebar.html" %}
 				</div>
-				<div id="content">				  
-				   {% block conteudo %}
-				   {% endblock %} 
-		      <br class="clear" />
+				<div id="content">
+					<div class="box">
+						<h2> {% block h2 %} {% endblock %} </h2>
+						{% block conteudo %}
+						{% endblock %}
+					</div>
+					<br class="clear" />
 				</div>
 				<br class="clear" />
 			</div>
