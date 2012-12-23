@@ -1,7 +1,17 @@
 {% extends "template_master.html" %}
+{% load comments %}
 
 {% block style %}
 <link rel="alternate" type="application/rss+xml" title="Ultimas noticias" href="/rss/" />
+<style type="text/css">
+	form label {
+		display: block;
+	}
+
+	textarea {
+		height: 100px;
+	}
+</style>
 {% endblock %}
 
 {% block conteudo %}
@@ -12,4 +22,23 @@
 <p>
 	{{noticia.data_publicacao|date:"d \d\e F \d\e Y"}}
 </p>
+<div class="comentarios">
+	<h3>Comentarios</h3>
+	{% get_comment_list for noticia as comentarios %}
+	{% for comentario in comentarios %}
+	<div class="comentario">
+		Nome: {{comentario.name}}
+		<br />
+		{% if comenario.url %} {{comentario.url}}
+		<br/>
+		{% endif %}
+		{{comentario.comment|linebreaks}}
+	</div>
+	{% endfor %}
+</div>
+<p>
+	<h3>Envie um comentario</h3>
+	{% render_comment_form for noticia %}
+</p>
+
 {% endblock %}

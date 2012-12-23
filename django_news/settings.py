@@ -1,3 +1,4 @@
+# *-* coding:utf-8
 # Django settings for django_news project.
 import os
 PROJECT_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -88,9 +89,11 @@ SECRET_KEY = '8c@t-eeysa0ee(p#@)0#jfbh*y^=d+c7o0&amp;q3x)rw#b%!!5!b+'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
+     #procura os templates a partir do TEMPLATE_DIRS
     'django.template.loaders.filesystem.Loader',
+     # procura os templates a partir da pasta "template"
+     # em cada aplicação registrada
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -116,6 +119,8 @@ TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT_PATH,'templates'),
 )
 
+#registra todas as aplicações
+#utilizadas pelo django
 INSTALLED_APPS = (
     #django.contrib
     'django.contrib.auth',
@@ -127,10 +132,11 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.syndication',
     'django.contrib.flatpages',
+    'django.contrib.comments',
      #'django.contrib.admindocs',
     #apps
     'noticias',
-    #'blog',
+    'blog',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -161,3 +167,9 @@ LOGGING = {
         },
     }
 }
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'zzzzzz@gmail.com'
+EMAIL_HOST_PASSWORD = 'zzzzzzz'
+EMAIL_PORT = 587

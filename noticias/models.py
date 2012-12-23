@@ -1,6 +1,7 @@
 # *-* coding:utf-8
 from django.db import models
 from datetime import datetime
+from django.core.validators import MaxLengthValidator
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=150, unique=True)
@@ -8,6 +9,12 @@ class Categoria(models.Model):
 
     def __unicode__(self):
         return u'%s' % (self.nome)
+
+    def get_absolute_url(self):
+        return 'categoria/%d/' %(self.id)
+
+    def get_friendly_url(self):
+       return 'categoria/%s/' %(self.chave)
 
     class Meta:
         ordering = ['nome']
@@ -18,6 +25,7 @@ class Noticia(models.Model):
     data_publicacao = models.DateTimeField(u'data de publicação',default=datetime.now)
     data_atualizacao = models.DateTimeField(u'data de atualização')
     texto = models.TextField()
+    resumo = models.TextField(validators=[MaxLengthValidator(200)])
     referencia = models.URLField(blank=True)
     chave = models.SlugField(u'palavra chave', unique=True)
     categorias = models.ManyToManyField(Categoria,verbose_name='categorias')
@@ -26,7 +34,13 @@ class Noticia(models.Model):
         return u'%s - %s' % (self.titulo, self.sub_titulo)
 
     def get_absolute_url(self):
-        return '/noticia/%d/' %(self.id)
+        return 'noticia/%d/' %(self.id)
+
+    def get_short_date(self):
+        return self.data_publicacao.strftime('%d/%m')
+
+    def get_friendly_url(self):
+        return 'noticia/%s/' %(self.chave)
 
     class Meta:
         ordering = ['-data_publicacao']
