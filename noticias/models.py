@@ -2,6 +2,9 @@
 from django.db import models
 from datetime import datetime
 from django.core.validators import MaxLengthValidator
+from django.core.urlresolvers import reverse
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=150, unique=True)
@@ -11,10 +14,9 @@ class Categoria(models.Model):
         return u'%s' % (self.nome)
 
     def get_absolute_url(self):
-        return 'categoria/%d/' %(self.id)
-
-    def get_friendly_url(self):
-       return 'categoria/%s/' %(self.chave)
+        return reverse('noticias.views.listar_noticias_por_categoria',
+            kwargs = {'slug': self.chave}
+        )
 
     class Meta:
         ordering = ['nome']
@@ -25,7 +27,7 @@ class Noticia(models.Model):
     data_publicacao = models.DateTimeField(u'data de publicação',default=datetime.now)
     data_atualizacao = models.DateTimeField(u'data de atualização')
     texto = models.TextField()
-    resumo = models.TextField(validators=[MaxLengthValidator(200)])
+    resumo = models.TextField(validators=[MaxLengthValidator(300)])
     referencia = models.URLField(blank=True)
     chave = models.SlugField(u'palavra chave', unique=True)
     categorias = models.ManyToManyField(Categoria,verbose_name='categorias')
@@ -34,13 +36,15 @@ class Noticia(models.Model):
         return u'%s - %s' % (self.titulo, self.sub_titulo)
 
     def get_absolute_url(self):
-        return 'noticia/%d/' %(self.id)
+        return reverse('noticias.views.buscar_noticia_por_chave',
+            kwargs={'slug':self.chave})
 
     def get_short_date(self):
         return self.data_publicacao.strftime('%d/%m')
 
-    def get_friendly_url(self):
-        return 'noticia/%s/' %(self.chave)
+    @receiver(pre_save)
+    def noticia_pre_save(signal, instance, sender, **kwargs):
+        instance.data_atualizacao = datetime.now()
 
     class Meta:
         ordering = ['-data_publicacao']

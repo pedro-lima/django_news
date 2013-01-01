@@ -15,7 +15,4 @@ class UltimasNoticias(Feed):
         return item.titulo
 
     def item_description(self, item):
-        return item.texto
-
-#    def item_link(self, noticia):
-#        return '/noticia/%d/' %noticia.id   
+        return item.resumo

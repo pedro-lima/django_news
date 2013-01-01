@@ -23,9 +23,9 @@ class NoticiaAdmin(admin.ModelAdmin):
     filter_horizontal = ['categorias',]
     inlines = [VideoInline,]
     fieldsets = [
-         ['Noticia',{'fields':['titulo','sub_titulo','texto','referencia','chave']}],
+         ['Noticia',{'fields':['titulo','sub_titulo','texto','resumo','referencia','chave']}],
          ['Categorias',{'fields':['categorias',]}],
-         ['Datas',{'fields':['data_publicacao','data_atualizacao',]}]
+         ['Datas',{'fields':['data_publicacao',]}]
     ]
 
 # News's models

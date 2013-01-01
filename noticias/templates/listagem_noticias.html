@@ -4,22 +4,22 @@
 	{% if noticias.object_list %}
 		{% for noticia in noticias.object_list %}
 			<div class="box">
-				<h3>{{noticia.titulo|upper}}</h3>
+				<h3><a href="{% url noticias.views.buscar_noticia_por_chave slug=noticia.chave %}">{{noticia.titulo|upper}}</a></h3>
 				<p>
 					{{noticia.resumo}}
 				</p>
 			</div>
 		{% endfor %}
 		<div class"pagination">
-			<span class="step-links"> 
-				{% if noticias.has_previous %} 
-					<a href="?page={{noticias.previous_page_number}}">Anterior</a> 
-				{% endif %} 
-				
-				<span class="current"> Página  {{noticias.number}} de {{noticias.paginator.num_pages}} </span> 
-				
-				{% if noticias.has_next %} 
-					<a href="?page={{noticias.next_page_number}}">Próximo</a> 
+			<span class="step-links">
+				{% if noticias.has_previous %}
+					<a href="?page={{noticias.previous_page_number}}">Anterior</a>
+				{% endif %}
+
+				<span class="current"> Página  {{noticias.number}} de {{noticias.paginator.num_pages}} </span>
+
+				{% if noticias.has_next %}
+					<a href="?page={{noticias.next_page_number}}">Próximo</a>
 				{% endif %}
 			</span>
 		</div>

@@ -1,5 +1,6 @@
 # *-* coding:utf-8
 from django.db import models
+from django.core.urlresolvers import reverse
 
 class Blog(models.Model):
     titulo = models.CharField(max_length=150)
@@ -7,8 +8,10 @@ class Blog(models.Model):
     chave = models.SlugField(unique=True)
     email = models.EmailField(u'e-mail',blank=True)
 
-    def get_friendly_url(self):
-        return '/blog/%s/' %(self.chave)
+    def get_absolute_url(self):
+        return reverse('blog.views.listar_postagens_por_blog',
+            kwargs = {'slug': self.chave}
+        )
 
 class Postagem(models.Model):
     titulo = models.CharField(max_length=150)
@@ -18,6 +21,14 @@ class Postagem(models.Model):
     referencia = models.URLField(blank=True)
     chave = models.SlugField(u'palavra chave', unique=True)
     blog = models.ForeignKey(Blog)
+
+    def get_absolute_url(self):
+        return reverse('blog.views.buscar_postagem_por_chave',
+            kwargs = {'slug': self.chave}
+        )
+
+
+
     #fotos
 
 #class Imagem(models.Model):

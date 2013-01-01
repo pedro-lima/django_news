@@ -133,8 +133,9 @@ INSTALLED_APPS = (
     'django.contrib.syndication',
     'django.contrib.flatpages',
     'django.contrib.comments',
+    'django.contrib.sitemaps',
      #'django.contrib.admindocs',
-    #apps
+     #apps
     'noticias',
     'blog',
 )
