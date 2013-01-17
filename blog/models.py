@@ -8,10 +8,10 @@ from datetime import datetime
 from django.utils.translation import ugettext_lazy as _
 
 class Blog(models.Model):
-    nome = models.CharField(_('nome'), max_length=150, help_text=_('O nome do blog'))
-    blogueiro = models.CharField(_('blogueiro'), max_length=250, help_text=('O nome do blogueiro'))
-    chave = models.SlugField(_('palavra chave'), unique=True)
-    email = models.EmailField(_('e-mail'), blank=True)
+    nome = models.CharField(_(u'nome'), max_length=150, help_text=_(u'O nome do blog'))
+    blogueiro = models.CharField(_(u'blogueiro'), max_length=250, help_text=_(u'O nome do blogueiro'))
+    chave = models.SlugField(_(u'palavra chave'), unique=True)
+    email = models.EmailField(_(u'e-mail'), blank=True)
 
     def __unicode__(self):
         return u'%s' % (self.nome)
@@ -24,13 +24,13 @@ class Blog(models.Model):
         ordering = ['nome']
 
 class Postagem(models.Model):
-    titulo = models.CharField(_('titulo'), max_length=150)
-    texto = models.TextField(_('texto'))
-    resumo = models.TextField(validators=[MaxLengthValidator(300)])
-    data_publicacao = models.DateTimeField(_('data de publicação'),default=datetime.now)
-    data_atualizacao = models.DateTimeField(_('data de atualização'))
-    referencia = models.URLField(_('referência'), blank=True)
-    chave = models.SlugField(_('palavra chave'), unique=True)
+    titulo = models.CharField(_(u'título'), max_length=150)
+    texto = models.TextField(_(u'texto'))
+    resumo = models.TextField(_(u'resumo'), validators=[MaxLengthValidator(300)])
+    data_publicacao = models.DateTimeField(_(u'data de publicação'), default=datetime.now)
+    data_atualizacao = models.DateTimeField(_(u'data de atualização'))
+    referencia = models.URLField(_(u'referência'), blank=True)
+    chave = models.SlugField(_(u'palavra chave'), unique=True)
     blog = models.ForeignKey(Blog)
 
     def __unicode__(self):
@@ -46,6 +46,6 @@ class Postagem(models.Model):
 
     class Meta:
         ordering = ['-data_publicacao']
-        verbose_name =  _('Post')
-        verbose_name_plural = _('Posts')
+        verbose_name =  _(u'Post')
+        verbose_name_plural = _(u'Posts')
         get_latest_by = '-data_publicacao'

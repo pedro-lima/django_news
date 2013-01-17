@@ -1,14 +1,7 @@
 from fabric.api import * # importing: local, settings,abort, run, cd, env
 from fabric.contrib.console import confirm
+from fabsettings import *
 import os
-import sys
-
-PROJECT_FULL_PATH = os.path.dirname(os.path.abspath(__file__)).replace('\\','/')
-sys.path.append(PROJECT_FULL_PATH)
-
-myproject = PROJECT_FULL_PATH.split('/')[-1] + ".settings"
-myproject = __import__(myproject)
-INSTALLED_APPS = ( app for app in  myproject.settings.INSTALLED_APPS if not "django" in app )
 
 def runserver():
     local('python manage.py runserver')
@@ -21,7 +14,11 @@ def update_db():
     local('python manage.py syncdb')
     print '\n=========SQL=========\n'
     for app in INSTALLED_APPS:
-        local('\n\npython manage.py sqlall %s' %app)
+        with settings(warn_only=True):
+            result = local('\n\npython manage.py sqlall %s' %app, capture=False)
+            if result.failed and not confirm('Tests failed. Continue anyway?'):
+                abort('Aborting at user request.')
+                break
 
 def test():
     for app in INSTALLED_APPS:
@@ -37,12 +34,26 @@ def commit():
     local('git add * && git commit')
 
 def push():
-    local('git push')
+    local('git push -u origin master')
+
+def status():
+    local('git status')
+
+def add_translate(language):
+    if not os.path.exists('locale'):
+        os.makedirs('locale')
+    local('django-admin.py makemessages -l %s' % (language))
+
+def update_translate():
+    local('django-admin.py makemessages -a')
+
+def compile_translate():
+    local('django-admin.py compilemessages')
 
 def prepare_deploy():
     test()
     commit()
     push()
 
-def host_type():
-    run('uname -s')   
+#def host_type():
+#    run('uname -s')   

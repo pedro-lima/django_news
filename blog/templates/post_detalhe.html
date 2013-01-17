@@ -1,5 +1,6 @@
 {% extends "template_master.html" %}
 {% load comments %}
+{% load i18n %}
 
 {% block style %}
 <link rel="alternate" type="application/rss+xml" title="Ultimas posts" href="/rss/" />
@@ -25,7 +26,7 @@
 {% get_comment_list for post as comentarios %}
 {% if comentarios %}
 <div class="comentarios">
-	<h3>Comentarios</h3>	
+	<h3>{% trans "Comentários"%}</h3>
 	{% for comentario in comentarios %}
 	<div class="comentario">
 		Nome: {{comentario.name}}
@@ -39,7 +40,7 @@
 </div>
 {% endif %}
 <p>
-	<h3>Envie um comentario</h3>
+	<h3>{% trans "Envie um comentário"%}</h3>
 	{% render_comment_form for post %}
 	{% comment %}
 	{% get_comment_form for post as form %}

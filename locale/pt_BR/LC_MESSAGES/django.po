@@ -1,0 +1,209 @@
+# *-* coding:utf-8
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-17 01:22-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: blog/models.py:11 noticias/models.py:12
+msgid "nome"
+msgstr "nome"
+
+#: blog/models.py:11
+msgid "O nome do blog"
+msgstr "O nome do blog"
+
+#: blog/models.py:12
+msgid "blogueiro"
+msgstr "blogueiro"
+
+#: blog/models.py:12
+msgid "O nome do blogueiro"
+msgstr "O nome do blogueiro"
+
+#: blog/models.py:13 blog/models.py:33 noticias/models.py:13
+#: noticias/models.py:34
+msgid "palavra chave"
+msgstr "palavra chave"
+
+#: blog/models.py:14
+msgid "e-mail"
+msgstr "e-mail"
+
+#: blog/models.py:27 noticias/models.py:27 noticias/models.py:75
+msgid "título"
+msgstr "título"
+
+#: blog/models.py:28 noticias/models.py:31
+msgid "texto"
+msgstr "texto"
+
+#: blog/models.py:29 noticias/models.py:32
+msgid "resumo"
+msgstr "resumo"
+
+#: blog/models.py:30 noticias/models.py:29
+msgid "data de publicação"
+msgstr "data de publicação"
+
+#: blog/models.py:31 noticias/models.py:30
+msgid "data de atualização"
+msgstr "data de atualização"
+
+#: blog/models.py:32 noticias/models.py:33
+msgid "referência"
+msgstr "referência"
+
+#: blog/models.py:49
+msgid "Post"
+msgstr "Post"
+
+#: blog/models.py:50
+msgid "Posts"
+msgstr "Posts"
+
+#: blog/templates/listagem_post.html:21
+#: noticias/templates/buscar_noticias.html:36
+#: noticias/templates/listagem_noticias.html:21
+msgid "Anterior"
+msgstr "Anterior"
+
+#: blog/templates/listagem_post.html:27
+#: noticias/templates/buscar_noticias.html:42
+#: noticias/templates/listagem_noticias.html:27
+msgid "Próximo"
+msgstr "Próximo"
+
+#: blog/templates/post_detalhe.html:29
+#: noticias/templates/noticia_detalhe.html:29
+msgid "Comentários"
+msgstr "Comentários"
+
+#: blog/templates/post_detalhe.html:43
+#: noticias/templates/noticia_detalhe.html:43
+msgid "Envie um comentário"
+msgstr "Envie um comentário"
+
+#: django_news/templates/contato.html:5
+msgid "Informe seus dados abaixo:"
+msgstr "Informe seus dados abaixo:"
+
+#: django_news/templates/contato.html:14
+msgid "Enviar contato"
+msgstr "Enviar contato"
+
+#: django_news/templates/contato.html:21
+msgid "Mensagem enviada com sucesso."
+msgstr "Mensagem enviada com sucesso."
+
+#: django_news/templates/header.html:15
+msgid "Site de notícias"
+msgstr "Site de notícias"
+
+#: django_news/templates/menu.html:4
+msgid "Página inicial"
+msgstr "Página inicial"
+
+#: django_news/templates/menu.html:7
+msgid "Sobre"
+msgstr "Sobre"
+
+#: django_news/templates/menu.html:10
+msgid "Contato"
+msgstr "Contato"
+
+#: django_news/templates/sidebar.html:5
+msgid "Ultimas notícias"
+msgstr "Ultimas notícias"
+
+#: django_news/templates/sidebar.html:15
+msgid "Sem notícias cadastradas."
+msgstr "Sem notícias cadastradas."
+
+#: django_news/templates/sidebar.html:21
+msgid "Categorias"
+msgstr "Categorias"
+
+#: django_news/templates/sidebar.html:29
+msgid "Sem categorias cadastradas."
+msgstr "Sem categorias cadastradas."
+
+#: django_news/templates/sidebar.html:35
+msgid "Blogs"
+msgstr "Blogs"
+
+#: django_news/templates/sidebar.html:42
+msgid "Sem blogs cadastrados."
+msgstr "Sem blogs cadastrados."
+
+#: noticias/models.py:28
+msgid "subtitulo"
+msgstr "subtitulo"
+
+#: noticias/models.py:35
+msgid "categorias"
+msgstr "categorias"
+
+#: noticias/models.py:53
+msgid "notícia"
+msgstr "notícia"
+
+#: noticias/models.py:54
+msgid "notícias"
+msgstr "notícias"
+
+#: noticias/models.py:76
+msgid "link do vídeo"
+msgstr "link do vídeo"
+
+#: noticias/models.py:83
+msgid "vídeo"
+msgstr "vídeo"
+
+#: noticias/models.py:84
+msgid "vídeos"
+msgstr "vídeos"
+
+#: noticias/templates/buscar_noticias.html:48
+msgid "Não existem noticias cadastradas para o termo procurado"
+msgstr "Não existem noticias cadastradas para o termo procurado"
+
+#~ msgid "Bem vindo ao meu site."
+#~ msgstr "Bem vindo ao meu site."
+
+#~ msgid "Hoje é %(day)s de %(month)s."
+#~ msgstr "Hoje é %(day)s de %(month)s."
+
+#~ msgid "Este é %(count)d objeto"
+#~ msgid_plural "Estes são %(count)d objetos"
+#~ msgstr[0] "Este é %(count)d objeto"
+#~ msgstr[1] "Estes são %(count)d objetos"
+
+#~ msgid "Página %(posts.number)s de %(posts.paginator.num_pages)s"
+#~ msgstr "Página %(posts.number)s de %(posts.paginator.num_pages)s"
+
+#~ msgid "Página %(noticias.number)s de %(noticias.paginator.num_pages)s"
+#~ msgstr "Página %(noticias.number)s de %(noticias.paginator.num_pages)s"
+
+#~ msgid "Português"
+#~ msgstr "Português"
+
+#~ msgid "Inglês"
+#~ msgstr "Inglês"
+
+#~ msgid "Espanhol"
+#~ msgstr "Espanhol"

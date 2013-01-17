@@ -1,9 +1,42 @@
+# Compiled source  #
+####################
 *.log
 *.pot
 *.pyc
-local_settings.py
+
+# Folder           #
+####################
+extras
+
+# OS generated files  #
+#######################
 *~
+
+# IDE generated files #
+#######################
 .project
 .pydevproject
 .manage.py.swo
 .manage.py.swp
+
+# Local files         #
+#######################
+local_settings.py
+
+# Packages            #
+#######################
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases  #
+#######################
+*.log
+*.sql
+*.sqlite
+/.settings/org.eclipse.core.resources.prefs

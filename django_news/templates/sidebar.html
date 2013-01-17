@@ -1,42 +1,45 @@
 {% load noticias_tools %}
 {% load blog_tools %}
+{% load i18n %}
 <div class="box">
-	<h3>Ultimas noticias</h3>
+	<h3>{% trans 'Ultimas notícias' %} </h3>
 	<div class="dateList">
 		<ul class="linkedList dateList">
 			{% listar_noticias %}
 			{% for noticia in noticias_list %}
-			<li class='{% if forloop.first %}first{% endif %}'>
-				<span class='date'>{{noticia.get_short_date}}</span>
+				<li class='{% if forloop.first %}first{% endif %}'>
+					<span class='date'>{{noticia.get_short_date}}</span>
 				<a href='{{noticia.get_absolute_url}}'>{{noticia.titulo}}</a>
-			</li>
+				</li>
+			{% empty %}
+				<li class='first'>{% trans 'Sem notícias cadastradas.' %}</li>
 			{% endfor %}
 		</ul>
 	</div>
 </div>
 <div class="box">
-	<h3> Categorias </h3>
+	<h3>{% trans 'Categorias' %}</h3>
 	<ul class="linkedList">
 		{% listar_categorias %}
 		{% for categoria in categorias_list %}
-		<li class='{% if forloop.first %}first{% endif %}'>
-			<a href='{{categoria.get_absolute_url}}'>{{categoria.nome}}</a>
-		</li>
+			<li class='{% if forloop.first %}first{% endif %}'>
+				<a href='{{categoria.get_absolute_url}}'>{{categoria.nome}}</a>
+			</li>
+		{% empty %}
+			<li class='first'>{% trans 'Sem categorias cadastradas.' %}</li>
 		{% endfor %}
 	</ul>
 </div>
 {% listar_blogs %}
 <div class="box">
-	<h3> Blogs </h3>
-	{% if blog_list %}
-		<ul class="linkedList">
-			{% for blog in blog_list %}
+	<h3>{% trans 'Blogs' %}</h3>
+	<ul class="linkedList">
+		{% for blog in blog_list %}
 			<li class='{% if forloop.first %}first{% endif %}'>
 				<a href='{{blog.get_absolute_url}}'>{{blog.nome}}</a>
 			</li>
-			{% endfor %}
+		{% empty %}
+			<li class='first'>{% trans 'Sem blogs cadastrados.' %}</li>
+		{% endfor %}
 		</ul>
-	{% else %}
-	<p>Sem blogs cadastrados. </p>	
-	{% endif %}
 </div>

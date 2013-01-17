@@ -1,12 +1,13 @@
+{% load i18n %}
 <ul>
 	<li class="first">
-		<a href="/">Home</a>
+		<a href="/">{% trans "Página inicial" %}</a>
 	</li>
 	<li>
-		<a href="/sobre/">Sobre</a>
+		<a href="/sobre/">{% trans "Sobre" %}</a>
 	</li>
 	<li class="last">
-		<a href="{% url django_news.views.enviar_mensagem %}">Contato</a>
+		<a href="{% url django_news.views.enviar_mensagem %}">{% trans "Contato" %}</a>
 	</li>
 </ul>
 <br class="clear" />

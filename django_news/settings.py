@@ -37,6 +37,12 @@ TIME_ZONE = 'America/Sao_Paulo'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'pt-br'
 
+LANGUAGES = (
+    ('pt-br', u'Português'),
+    ('en', u'Inglês'),
+    ('es', u'Espanhol'),
+)
+
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
@@ -100,12 +106,12 @@ TEMPLATE_LOADERS = (
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.cache.UpdateCacheMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
@@ -128,7 +134,6 @@ TEMPLATE_DIRS = (
 #registra todas as aplicações
 #utilizadas pelo django
 INSTALLED_APPS = (
-    #django.contrib
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -141,9 +146,6 @@ INSTALLED_APPS = (
     'django.contrib.comments',
     'django.contrib.sitemaps',
     'django.contrib.redirects',
-
-     #'django.contrib.admindocs',
-     #apps
     'noticias',
     'blog',
     'ckeditor',
@@ -186,8 +188,11 @@ CACHES = {
 }
 
 #The number of seconds each page should be cached.
-CACHE_MIDDLEWARE_SECONDS= 60
+CACHE_MIDDLEWARE_SECONDS= 1
 CACHE_MIDDLEWARE_KEY_PREFIX= 'django_news'
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 
-from local_settings import *
+try:
+    from local_settings import *
+except:
+    pass

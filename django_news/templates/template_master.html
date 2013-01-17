@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load cache %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -19,14 +20,12 @@ Released   : 20120723
 	<body style="background-color:black;">
 		<div id="outer">
 			<div id="header">
-                                {% cache 3600 header %}
 				    {% include "header.html" %}
-                                {% endcache %}
 			</div>
 			<div id="banner">
-                                {% cache 3600 banner %}
+
 				    {% include "banner.html" %}
-                                {% endcache %}
+
 			</div>
 			<div id="main">
 				<div id="sidebar">
@@ -44,9 +43,24 @@ Released   : 20120723
 			</div>
 		</div>
 		<div id="copyright">
-                        {% cache 3600 footer %}
+                        {% cache 30 footer %}
 			    {% include "footer.html" %}
                         {% endcache %}
 		</div>
+
+
+{% get_available_languages as LANGUAGES %}
+<div class="idiomas">
+  <form action="/i18n/setlang/" method="post">
+ {% csrf_token %}
+    <select name="language">
+      {% for lang in LANGUAGES %}
+      <option value="{{ lang.0 }}">{{ lang.1 }}</option>
+      {% endfor %}
+    </select>
+
+    <input type="submit" value="Mudar idioma"/>
+  </form>
+</div>
 	</body>
 </html>
