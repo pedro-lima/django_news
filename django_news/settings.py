@@ -63,7 +63,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(RESOURCE_PATH,'root')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -75,6 +75,8 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(RESOURCE_PATH,'static'),
 )
+
+CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT,'ckeditor')
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -97,6 +99,7 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -104,6 +107,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
+    'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
+
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -134,10 +140,13 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'django.contrib.comments',
     'django.contrib.sitemaps',
+    'django.contrib.redirects',
+
      #'django.contrib.admindocs',
      #apps
     'noticias',
     'blog',
+    'ckeditor',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -168,9 +177,17 @@ LOGGING = {
         },
     }
 }
+# Type of cache in use
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'zzzzzz@gmail.com'
-EMAIL_HOST_PASSWORD = 'zzzzzzz'
-EMAIL_PORT = 587
+#The number of seconds each page should be cached.
+CACHE_MIDDLEWARE_SECONDS= 60
+CACHE_MIDDLEWARE_KEY_PREFIX= 'django_news'
+CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
+
+from local_settings import *

@@ -2,9 +2,11 @@
 	{% include "menu.html" %}
 </div>
 <div id="search">
-	<form action="" method="post">
+	<form action="{% url noticias.views.realizar_busca_noticias %}" method="get">
 		<div>
-			<input class="text" name="search" size="32" maxlength="64" />
+			{% load formulario_tools %}
+			{% exibir_formulario_busca %}						
+		    {{formulario_busca}}			
 		</div>
 	</form>
 </div>

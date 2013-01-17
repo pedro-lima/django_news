@@ -9,30 +9,28 @@ import settings
 admin.autodiscover()
 
 info_dict = {
-  'queryset' : Postagem.objects.all(),
+  'queryset'   : Postagem.objects.all(),
   'date_field' : 'data_atualizacao',
 
 }
 
 sitemaps = {
     'flatpage' : FlatPageSitemap,
-    'blog' : GenericSitemap(info_dict, priority = 0.6),
-    'noticia':NoticiaSitemap
-}
-
-feeds = {
- 'ultimas' : UltimasNoticias(),
+    'blog'     : GenericSitemap(info_dict, priority = 0.6),
+    'noticia'  : NoticiaSitemap
 }
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^extras/',include('extras.urls')),
     (r'^contato/$','django_news.views.enviar_mensagem'),
     (r'^comments/', include('django.contrib.comments.urls')),
-    (r'^$','noticias.views.listar_noticias'),
     (r'^noticia/(?P<slug>.*)/$','noticias.views.buscar_noticia_por_chave'),
-    (r'^categoria/(?P<slug>.*)/$','noticias.views.listar_noticias_por_categoria'),
     (r'^blog/(?P<slug>.*)/$','blog.views.listar_postagens_por_blog'),
     (r'^postagem/(?P<slug>.*)/$','blog.views.buscar_postagem_por_chave'),
+    (r'^busca/','noticias.views.realizar_busca_noticias'),
+    (r'^$','noticias.views.listar_noticias'),
+    (r'^categoria/(?P<slug>.*)/$','noticias.views.listar_noticias_por_categoria'),
 
     #Medias
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve',  {'document_root': settings.MEDIA_ROOT,}),
@@ -45,6 +43,10 @@ urlpatterns = patterns('',
     #(r'sitemap\.xml$','django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
     (r'sitemap\.xml$','django.contrib.sitemaps.views.index', {'sitemaps': sitemaps}),
     (r'sitemap-(?P<section>.+)\.xml$','django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
+
+    #CKEDITOR
+    (r'^ckeditor/', include('ckeditor.urls')),
+
 )
 
 if(settings.DEBUG):

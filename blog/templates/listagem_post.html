@@ -1,0 +1,27 @@
+{% extends "template_master.html" %}
+
+{% block conteudo %}
+	{% if posts.object_list %}
+		{% for post in posts.object_list %}
+			<div class="box">
+				<h3><a href="{% url blog.views.buscar_postagem_por_chave slug=post.chave %}">{{post.titulo|upper}}</a></h3>
+				<p>
+					{{post.resumo}}
+				</p>
+			</div>
+		{% endfor %}
+		<div class"pagination">
+			<span class="step-links">
+				{% if posts.has_previous %}
+					<a href="?page={{noticias.previous_page_number}}">Anterior</a>
+				{% endif %}
+
+				<span class="current"> Página  {{posts.number}} de {{posts.paginator.num_pages}} </span>
+
+				{% if posts.has_next %}
+					<a href="?page={{noticias.next_page_number}}">Próximo</a>
+				{% endif %}
+			</span>
+		</div>
+	{% endif %}
+{% endblock %}

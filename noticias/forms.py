@@ -2,16 +2,16 @@
 from django import forms
 
 class BuscaForm(forms.Form):
-    termo = forms.CharField(max_length=200,label=u'Busca')
+    termo = forms.CharField(max_length=100,label='',)
+    
+    termo.widget.attrs['size'] = '32'
+    termo.widget.attrs['class'] = 'text'
+    termo.error_messages = {'required': 'O termo da pesquisa deve ser informado'}    
 
-    clean_termo(self):
-        msg = self.cleaned_data['termo']
-        if len(msg) < 5:
-            raise. forms.ValidationError('Palavra pequena')
+    def clean_termo(self):
+        msg = self.cleaned_data['termo'].strip()
+        if(msg==''):
+            raise forms.ValidationError("O termo da pesquisa deve ser informado")
+        if len(msg) < 3:            
+            raise forms.ValidationError("O termo informado deve ter pelo menos 3 caracteres")
         return msg
-
-#class ComentarioForm(forms.Form):
-#    nome = forms.CharField()
-#    email = forms.CharField()
-#    mensagem = forms.CharField()
-#    noticia = forms.CharField(widget=forms.HiddenInput)

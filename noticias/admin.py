@@ -13,8 +13,8 @@ class VideoInline(admin.TabularInline):
 
 class NoticiaAdmin(admin.ModelAdmin):
     #listagem
-    list_display = ['titulo','data_publicacao','data_atualizacao','chave']
-    search_fields = ['titulo','sub_titulo','data_publicacao','data_atualizacao','chave','categorias']
+    list_display = ['titulo','data_publicacao','data_atualizacao',]
+    search_fields = ['titulo','sub_titulo','data_publicacao','data_atualizacao','chave','categorias',]
     list_filter = ['data_publicacao',]
     date_hierarchy = 'data_publicacao'
     ordering = ['-data_atualizacao','-data_publicacao',]

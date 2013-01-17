@@ -1,3 +1,4 @@
+{% load cache %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <!--
@@ -18,10 +19,14 @@ Released   : 20120723
 	<body style="background-color:black;">
 		<div id="outer">
 			<div id="header">
-				{% include "header.html" %}
+                                {% cache 3600 header %}
+				    {% include "header.html" %}
+                                {% endcache %}
 			</div>
 			<div id="banner">
-				{% include "banner.html" %}
+                                {% cache 3600 banner %}
+				    {% include "banner.html" %}
+                                {% endcache %}
 			</div>
 			<div id="main">
 				<div id="sidebar">
@@ -39,7 +44,9 @@ Released   : 20120723
 			</div>
 		</div>
 		<div id="copyright">
-			{% include "footer.html" %}
+                        {% cache 3600 footer %}
+			    {% include "footer.html" %}
+                        {% endcache %}
 		</div>
 	</body>
 </html>

@@ -5,6 +5,7 @@ from django.core.validators import MaxLengthValidator
 from django.core.urlresolvers import reverse
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
+from ckeditor.fields import RichTextField
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=150, unique=True)
@@ -26,7 +27,7 @@ class Noticia(models.Model):
     sub_titulo = models.CharField(max_length=255)
     data_publicacao = models.DateTimeField(u'data de publicação',default=datetime.now)
     data_atualizacao = models.DateTimeField(u'data de atualização')
-    texto = models.TextField()
+    texto = RichTextField()
     resumo = models.TextField(validators=[MaxLengthValidator(300)])
     referencia = models.URLField(blank=True)
     chave = models.SlugField(u'palavra chave', unique=True)
