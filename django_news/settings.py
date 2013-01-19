@@ -43,7 +43,11 @@ LANGUAGES = (
     ('es', u'Espanhol'),
 )
 
-SITE_ID = 1
+LOCALE_PATHS = (
+    os.path.join(RESOURCE_PATH,'locale'),
+)
+
+#SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.

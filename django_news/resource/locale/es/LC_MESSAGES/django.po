@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-17 01:22-0300\n"
+"POT-Creation-Date: 2013-01-17 03:06-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,14 +17,15 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: blog/models.py:11 noticias/models.py:12
 msgid "nome"
-msgstr "name"
+msgstr "nombre"
 
 #: blog/models.py:11
 msgid "O nome do blog"
-msgstr "The name of the blog"
+msgstr "El nombre del blog"
 
 #: blog/models.py:12
 msgid "blogueiro"
@@ -32,114 +33,114 @@ msgstr "blogger"
 
 #: blog/models.py:12
 msgid "O nome do blogueiro"
-msgstr "The name of the blogger"
+msgstr "El nombre del blogger"
 
 #: blog/models.py:13 blog/models.py:33 noticias/models.py:13
 #: noticias/models.py:34
 msgid "palavra chave"
-msgstr "keyword"
+msgstr "palabra clave"
 
 #: blog/models.py:14
 msgid "e-mail"
-msgstr "email"
+msgstr "e-mail"
 
 #: blog/models.py:27 noticias/models.py:27 noticias/models.py:75
 msgid "título"
-msgstr "title"
+msgstr "título"
 
 #: blog/models.py:28 noticias/models.py:31
 msgid "texto"
-msgstr "text"
+msgstr "texto"
 
 #: blog/models.py:29 noticias/models.py:32
 msgid "resumo"
-msgstr "summary"
+msgstr "resumen"
 
 #: blog/models.py:30 noticias/models.py:29
 msgid "data de publicação"
-msgstr "date of publication"
+msgstr "fecha de publicación"
 
 #: blog/models.py:31 noticias/models.py:30
 msgid "data de atualização"
-msgstr "date of update"
+msgstr "fecha de actualización"
 
 #: blog/models.py:32 noticias/models.py:33
 msgid "referência"
-msgstr "reference"
+msgstr "referencia"
 
 #: blog/models.py:49
 msgid "Post"
-msgstr "Post"
+msgstr "mensaje"
 
 #: blog/models.py:50
 msgid "Posts"
-msgstr "Posts"
+msgstr "mensajes"
 
 #: blog/templates/listagem_post.html:21
 #: noticias/templates/buscar_noticias.html:36
 #: noticias/templates/listagem_noticias.html:21
 msgid "Anterior"
-msgstr "Previous"
+msgstr "Anterior"
 
 #: blog/templates/listagem_post.html:27
 #: noticias/templates/buscar_noticias.html:42
 #: noticias/templates/listagem_noticias.html:27
 msgid "Próximo"
-msgstr "Next"
+msgstr "Cerrar"
 
 #: blog/templates/post_detalhe.html:29
 #: noticias/templates/noticia_detalhe.html:29
 msgid "Comentários"
-msgstr "Comments"
+msgstr "Comentarios"
 
 #: blog/templates/post_detalhe.html:43
 #: noticias/templates/noticia_detalhe.html:43
 msgid "Envie um comentário"
-msgstr "Post a comment"
+msgstr "Publicar un comentario"
 
 #: django_news/templates/contato.html:5
 msgid "Informe seus dados abaixo:"
-msgstr "Enter your details below:"
+msgstr "Introduzca sus datos a continuación:"
 
 #: django_news/templates/contato.html:14
 msgid "Enviar contato"
-msgstr "Send contact"
+msgstr "Enviar contacto"
 
 #: django_news/templates/contato.html:21
 msgid "Mensagem enviada com sucesso."
-msgstr "Message sent successfully."
+msgstr "Mensaje enviado con éxito."
 
 #: django_news/templates/header.html:15
 msgid "Site de notícias"
-msgstr "Site News"
+msgstr "Sitio del noticias"
 
 #: django_news/templates/menu.html:4
 msgid "Página inicial"
-msgstr "Home"
+msgstr "Inicio"
 
 #: django_news/templates/menu.html:7
 msgid "Sobre"
-msgstr "About"
+msgstr "Sobre"
 
 #: django_news/templates/menu.html:10
 msgid "Contato"
-msgstr "Contact"
+msgstr "Contacto"
 
 #: django_news/templates/sidebar.html:5
 msgid "Ultimas notícias"
-msgstr "Breaking news"
+msgstr "Noticias de última hora"
 
 #: django_news/templates/sidebar.html:15
 msgid "Sem notícias cadastradas."
-msgstr "Without indexed news."
+msgstr "Sin noticias indexadas."
 
 #: django_news/templates/sidebar.html:21
 msgid "Categorias"
-msgstr "Categories"
+msgstr "Categorías"
 
 #: django_news/templates/sidebar.html:29
 msgid "Sem categorias cadastradas."
-msgstr "No categories registered."
+msgstr "Sin indexadas categorías."
 
 #: django_news/templates/sidebar.html:35
 msgid "Blogs"
@@ -147,28 +148,28 @@ msgstr "Blogs"
 
 #: django_news/templates/sidebar.html:42
 msgid "Sem blogs cadastrados."
-msgstr "No blogs registered."
+msgstr "Sin blogs registrados."
 
 #: noticias/models.py:28
-#, fuzzy
 msgid "subtitulo"
-msgstr "caption"
+msgstr "subtitulo"
 
 #: noticias/models.py:35
 msgid "categorias"
-msgstr "categories"
+msgstr "categorías"
 
 #: noticias/models.py:53
 msgid "notícia"
-msgstr "news"
+msgstr "noticia"
 
 #: noticias/models.py:54
+#, fuzzy
 msgid "notícias"
-msgstr "news"
+msgstr "noticias"
 
 #: noticias/models.py:76
 msgid "link do vídeo"
-msgstr "Video link"
+msgstr "link do vídeo"
 
 #: noticias/models.py:83
 msgid "vídeo"
@@ -180,33 +181,33 @@ msgstr "videos"
 
 #: noticias/templates/buscar_noticias.html:48
 msgid "Não existem noticias cadastradas para o termo procurado"
-msgstr "There are no news Indexed for the search term"
+msgstr "No hay noticias indexadas por el término de búsqueda"
 
 #~ msgid "Bem vindo ao meu site."
-#~ msgstr "Welcome to my site."
+#~ msgstr "Bienvenidos a mi sitio."
 
 #~ msgid "Hoje é %(day)s de %(month)s."
-#~ msgstr "Today is %(day)s of %(month)s."
+#~ msgstr "Hoy es %(day)s de %(month)s."
 
 #~ msgid "Este é %(count)d objeto"
 #~ msgid_plural "Estes são %(count)d objetos"
-#~ msgstr[0] "This is %(count)d object"
-#~ msgstr[1] "These are %(count)d objects"
+#~ msgstr[0] "Esta es %(count)d objeto"
+#~ msgstr[1] "Estos son %(count)d objetos"
 
 #~ msgid "Página %(posts.number)s de %(posts.paginator.num_pages)s"
-#~ msgstr "Page %(posts.number)s of %(posts.paginator.num_pages)s"
+#~ msgstr "Página %(posts.number)s de %(posts.paginator.num_pages)s"
 
 #~ msgid "Página %(noticias.number)s de %(noticias.paginator.num_pages)s"
-#~ msgstr "Page %(noticias.number)s of %(noticias.paginator.num_pages)s"
+#~ msgstr "Página %(noticias.number)s de %(noticias.paginator.num_pages)s"
 
 #~ msgid "titulo"
-#~ msgstr "title"
+#~ msgstr "titulo"
 
 #~ msgid "Português"
-#~ msgstr "Portuguese"
+#~ msgstr "Portugués"
 
 #~ msgid "Inglês"
-#~ msgstr "English"
+#~ msgstr "Inglés"
 
 #~ msgid "Espanhol"
-#~ msgstr "Spanish"
+#~ msgstr "Español"
